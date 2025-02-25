@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Umbrella Customizer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="umbrella">
+            <div class="umbrella-img" id="umbrella">
+                <img src="" id="logo" class="logo">
+            </div>
+        </div>
+
+        <div class="customize-umbrella">
+            <div class="text-align">
+                <h1 class="heading-text">Custom Umbrella</h1>
+                <div class="colors">
+                    <div class="color-btn" style="background: pink;" onclick="changeColor('Pink')"></div>
+                    <div class="color-btn" style="background: blue;" onclick="changeColor('Blue')"></div>
+                    <div class="color-btn" style="background: yellow;" onclick="changeColor('Yellow')"></div>
+                    <div class="color-btn" style="background: black;"></div>
+                    <div class="color-btn" style="background: gray;"></div>
+                    <div class="color-btn" style="background: navy;"></div>
+                    <div class="color-btn" style="background: orange;"></div>
+                    <div class="color-btn" style="background: red;"></div>
+
+
+                </div>
+                <p class="" style="margin-bottom: 5px;font-weight:700 ;">Customize your umbrella</p>
+                <p class="" style="margin-top: 0px; margin-bottom: 10px;">Upload a logo for an instant preview</p>
+                <p class="" style="margin-top: 0px; margin-bottom: 10px;font-size: 12px;">.png and .jpg files only. Max file size is 5MB</p>
+                <input type="file" id="fileInput" accept="image/png, image/jpeg">
+                <button class="upload-btn" onclick="uploadLogo()" id="upload-btn"> <img src="assets/upload_icon.svg" alt="upload-btn-icon" style=" filter: invert(1); float: left;" height="20px"> Upload Logo</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        function changeColor(color) {
+            document.getElementById('umbrella').style.backgroundImage = `url('assets/${color}-umbrella.png')`;
+            document.body.style.backgroundColor = color === 'Pink' ? '#ffebee' : color === 'Blue' ? '#e0f7fa' : '#fffde7';
+            document.getElementById('upload-btn').style.backgroundColor = color === 'Pink' ? '#d90166' : color === 'Blue' ? 'blue' : '#ffcc00';
+        }
+        function uploadLogo() {
+            const fileInput = document.getElementById('fileInput');
+            const logo = document.getElementById('logo');
+            const file = fileInput.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    logo.src = event.target.result;
+                    logo.style.display = 'block';
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+    </script>
+</body>
+</html>

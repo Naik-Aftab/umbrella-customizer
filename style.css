@@ -1,0 +1,68 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #e0f7fa;
+    margin: 0;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    height: 100vh;
+    max-width: 900px;
+}
+.umbrella, .customize-umbrella {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+
+}
+
+.umbrella-img {
+    background: url('assets/Blue-umbrella.png') no-repeat center/cover;
+    position: relative;
+    height: 350px;
+    width: 400px;
+    object-fit: contain;
+}
+.logo {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 100px;
+    max-height: 50px;
+}
+.colors {
+    margin: 20px 0;
+}
+.color-btn {
+    width: 22px;
+    height: 22px;
+    display: inline-block;
+    margin: 5px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* .color-btn:hover{
+    border: 2px solid #fff;
+} */
+.upload-btn {
+    display: block;
+    margin: 20px 0px;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    text-transform: uppercase;
+}
+.heading-text{
+    font-size: 40px;
+}
+.text-align{
+    text-align: start;
+}
