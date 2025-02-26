@@ -46,12 +46,13 @@ body {
     cursor: pointer;
 }
 
-/* .color-btn:hover{
-    border: 2px solid #fff;
-} */
+
 .upload-btn {
-    display: block;
-    margin: 20px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin: 15px 0px;
     padding: 10px;
     background-color: #007bff;
     color: white;
@@ -60,9 +61,21 @@ body {
     width: 100%;
     text-transform: uppercase;
 }
+
+.upload-btn-icon{
+    filter: invert(1);
+    position: absolute;
+     left: 10px;
+     height: 20px;
+}
+
 .heading-text{
     font-size: 40px;
 }
 .text-align{
     text-align: start;
+}
+
+#fileInput {
+    display: none;
 }

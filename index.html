@@ -32,9 +32,15 @@
                 <p class="" style="margin-bottom: 5px;font-weight:700 ;">Customize your umbrella</p>
                 <p class="" style="margin-top: 0px; margin-bottom: 10px;">Upload a logo for an instant preview</p>
                 <p class="" style="margin-top: 0px; margin-bottom: 10px;font-size: 12px;">.png and .jpg files only. Max file size is 5MB</p>
-                <input type="file" id="fileInput" accept="image/png, image/jpeg">
-                <button class="upload-btn" onclick="uploadLogo()" id="upload-btn"> <img src="assets/upload_icon.svg" alt="upload-btn-icon" style=" filter: invert(1); float: left;" height="20px"> Upload Logo</button>
-            </div>
+            
+                <input type="file" id="fileInput" accept="image/png, image/jpeg" onchange="updateFileName()">
+
+                <!-- Custom file upload button -->
+                <button class="upload-btn" onclick="document.getElementById('fileInput').click()" id="upload-btn">
+                    <img class="upload-btn-icon" src="assets/upload_icon.svg" alt="upload-btn-icon">
+                    <span id="button-text">Upload Logo</span>
+                </button>
+            </div>                             
         </div>
     </div>
     <script>
@@ -54,6 +60,18 @@
                     logo.style.display = 'block';
                 };
                 reader.readAsDataURL(file);
+            }
+        }
+
+        function updateFileName() {
+            const fileInput = document.getElementById('fileInput');
+            const buttonText = document.getElementById('button-text');
+
+            if (fileInput.files.length > 0) {
+                buttonText.textContent = fileInput.files[0].name; // Display the file name
+                uploadLogo();
+            } else {
+                buttonText.textContent = "Upload Logo"; // Default text
             }
         }
     </script>
