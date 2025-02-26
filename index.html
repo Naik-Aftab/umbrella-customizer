@@ -54,6 +54,10 @@
             const logo = document.getElementById('logo');
             const file = fileInput.files[0];
             if (file) {
+                if (file.size > 5 * 1024 * 1024) {
+                    alert("File size exceeds 5MB. Please upload a smaller file.");
+                    return;
+                }
                 const reader = new FileReader();
                 reader.onload = function(event) {
                     logo.src = event.target.result;
